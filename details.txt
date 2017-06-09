@@ -1,0 +1,10 @@
+Making a terminal chat app using python that allow to read and send secret message hiddemn inside image.
+This app does not using any database and rely on computer's non-pesistent memory.
+
+
+PYTHON SETUP
+To run this chat app, some external libraries are required like steganography,termcolor,colorama.
+
+RUN:
+To run this chat app use:
+python chat.py
