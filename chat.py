@@ -67,7 +67,7 @@ def add_friend():
     new_friend.name = raw_input("Please add your friend's name: ")
     new_friend.salutation = raw_input("Are they Mr. or Ms.?: ")
 
-    new_friend.name = new_friend.salutation + " " + new_friend.name
+    #new_friend.name = new_friend.salutation + " " + new_friend.name
 
     new_friend.age = raw_input("Age?")
     new_friend.age = int(new_friend.age)
@@ -115,7 +115,7 @@ def send_message():
 
     print "Your secret message image is ready!"
   except TypeError:
-      print "Your imagge does not contain any message."
+      print "Your image does not contain any message."
 
 #Reading secret message from a friend
 def read_message():
@@ -221,9 +221,15 @@ elif existing.upper() == "N" :
 
         spy.rating = raw_input("What is your spy rating?")
         spy.rating = float(spy.rating)
+        if spy.rating>4.7:
+            print "Great spy"
+        elif spy.rating<4.7 and spy.rating>2.5:
+            print "You are average spy rating"
+        else:
+            print "You can do better."
 
         start_chat(spy)
-#If custom user enter inavalid name then it display warning.
+#If custom user enter invalid name then it display warning.
     else:
         print 'Please add a valid spy name'
 else:
