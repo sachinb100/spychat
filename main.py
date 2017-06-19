@@ -136,14 +136,19 @@ def read_message():
 
     print "Your secret message is:"
     print secret_text
-    words=secret_text.split()
- #Remove a spy for speaking too much
-    if len(words)>100:
+ # Printing appropriate message for special words
+
+
+    if secret_text == 'Saveme' or secret_text == "Help" or secret_text == "trouble" or secret_text == "Emergency":
+     print "What can i do for u?"
+
+     words = secret_text.split()  # Remove a spy for speaking too much
+    if len(words) > 100:
         print "You are speaking too much."
         friends.remove(friends[sender])
-
-
-
+    # printing message when average word reached
+    if len(words) > 55:
+         print "Average number of words reach"
 # Method for Printing chat history from a particular friend
 def read_chat_history():
 
@@ -196,15 +201,17 @@ def start_chat(spy):
                     read_message()
                 elif menu_choice == 5:
                     read_chat_history()
-                else:
+                elif menu_choice == 6:
+                    print "Application closed"
                     show_menu = False
+                else:
+                    print "That was a wrong choice."
 #Dispalying meassage if spy age is not fufill
     else:
         print 'Sorry you are not of the correct age to be a spy'
 
 if existing.upper() == "Y":
     start_chat(spy)
-
 elif existing.upper() == "N" :
 
     spy = Spy('','',0,0.0)
@@ -214,23 +221,35 @@ elif existing.upper() == "N" :
 
     if len(spy.name) > 0:
 #Ask the custom user the salutation he/she want
+
         spy.salutation = raw_input("Should I call you Mr. or Ms.?: ")
+        if len(spy.salutation)>0:
 #Ask the user for their age
-        spy.age = raw_input("What is your age?")
-        spy.age = int(spy.age)
+          spy.age = raw_input("What is your age?")
+          if len(spy.age)>0:
+            spy.age = int(spy.age)
 
-        spy.rating = raw_input("What is your spy rating?")
-        spy.rating = float(spy.rating)
-        if spy.rating>4.7:
-            print "Great spy"
-        elif spy.rating<4.7 and spy.rating>2.5:
-            print "You are average spy rating"
+            spy.rating = raw_input("What is your spy rating?")
+            if len(spy.rating) > 0:
+               spy.rating = float(spy.rating)
+               if spy.rating>4.7:
+                   print "Great spy"
+               elif spy.rating<4.7 and spy.rating>2.5:
+                   print "You are average spy rating"
+               else:
+                  print "You can do better."
+
+                  start_chat(spy)
+                        #If custom user enter invalid name then it display warning.
+            else:
+                print "Enter your spy_rating"
+          else:
+              print "Enter your age"
+
         else:
-            print "You can do better."
+           print "Please enter Mr.or Ms."
 
-        start_chat(spy)
-#If custom user enter invalid name then it display warning.
     else:
         print 'Please add a valid spy name'
 else:
-    print "Please enter y or n"
+     print "Please enter y or n"
