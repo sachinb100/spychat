@@ -18,7 +18,7 @@ The project is developed using python version 2.0
 Clone the project
 
 ```bash
-  git clone https://github.com/sachinb100/spychat
+  git clone https://github.com/sachinb100/spychat.git
 ```
 
 Go to the project directory
